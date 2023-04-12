@@ -13,7 +13,7 @@
                             <p>Elearn is a global training provider based across the UK that specialises in accredited and
                                 bespoke training courses. We crush the...</p>
                         </div>
-                        <div class="findLocation">
+                        <div class="inputDesign">
                             <input type="text" placeholder="search for a location">
                             <button class="btn">Continue</button>
                             <img src="../assets/findIcon.svg" alt="">
@@ -81,7 +81,7 @@
             <br><br><br>
             <div class="cards container row ai-c js-b">
                 <div class="card" v-for="data in cardDatas" :key="data.id">
-                    <div class="img"><img class="contain" :src="data.source" alt=""></div>
+                    <div class="img"><img class="contain" style="border-radius: 10px" :src="data.source" alt=""></div>
                     <br>
                     <div class="row js-b ai-c">
                         <div class="text" style="display: inline-block;">
@@ -209,16 +209,48 @@
                     <img class="effect" src="../assets/rightCircleShape.svg" alt="">
                 </div>
             </div>
-            <div class="teacher-box"></div>
+            <br><br>
+            <br><br>
+            <div class="cards row ai-c js-b">
+                <div class="card" v-for="data in teacherDatas" :key="data.id">
+                    <div class="img"><img class="contain" style="border-radius: 10px" :src="data.source" alt=""></div>
+                    <br>
+                    <div class="subtitle">
+                        {{ data.name }}
+                    </div>
+                    <div class="text">
+                        <p style="font-weight: 500;">{{ data.mail }}</p>
+                    </div>
+                    <div class="text" style="display: inline-block;margin: 20px 0;">
+                        {{ data.desc }}
+                    </div>
+
+                    <div class="bottom row ai-c js-b">
+                        <div class="text">
+                            <h4 class="orange">{{ data.job }}</h4>
+                        </div>
+                        <div class="linksIcon row">
+                            <div class="linkIcon">
+                                <a :href="data.linkedInLink"><img src="../assets/instagram.svg" alt=""></a>
+                            </div>
+                            <div class="linkIcon">
+                                <a :href="data.instagramLink"><img src="../assets/linkedin.svg" alt=""></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </section>
+        <Subs/>
     </div>
 </template>
 
 <script setup>
 import Nav from "./header.vue";
+import Subs from "./subs.vue";
 import { ref } from 'vue';
 import 'vue3-carousel/dist/carousel.css'
-import { Carousel, Slide, Pagination, Navigation } from 'vue3-carousel'
+import { Carousel, Slide, Pagination } from 'vue3-carousel'
 const cardDatas = ref([{
     id: 0,
     source: new URL('../assets/tracks.png', import.meta.url),
@@ -311,6 +343,43 @@ const boxData = ref([
         source: new URL('../assets/teacher1.png', import.meta.url)
     },
 ])
+
+const teacherDatas = ref([{
+    desc: `“Teachings of the great explore of truth, 
+            the master-builder of human happiness. 
+            no one rejects,dislikes, or avoids pleasure 
+            itself, pleasure itself”`,
+    name: "Finlay Kirk",
+    job: "Web Developer",
+    source: new URL('../assets/teacher1.png', import.meta.url),
+    linkedInLink: '/',
+    instagramLink: '/',
+    mail: 'easyExample@mail.blabla'
+},
+{
+    desc: `“Teachings of the great explore of truth, 
+            the master-builder of human happiness. 
+            no one rejects,dislikes, or avoids pleasure 
+            itself, pleasure itself”`,
+    name: "Finlay Kirk",
+    job: "Web Developer",
+    source: new URL('../assets/teacher2.png', import.meta.url),
+    linkedInLink: 'www.facebook.com',
+    instagramLink: 'www.instagram.com',
+    mail: 'easyExample@mail.blabla'
+},
+{
+    desc: `“Teachings of the great explore of truth, 
+            the master-builder of human happiness. 
+            no one rejects,dislikes, or avoids pleasure 
+            itself, pleasure itself”`,
+    name: "Finlay Kirk",
+    job: "Web Developer",
+    source: new URL('../assets/teacher3.png', import.meta.url),
+    linkedInLink: '/',
+    instagramLink: '/',
+    mail: 'easyExample@mail.blabla'
+}])
 
 </script>
 

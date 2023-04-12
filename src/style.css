@@ -143,13 +143,13 @@ nav {
   padding-bottom: 250px;
 }
 
-.findLocation {
+.inputDesign {
   position: relative;
   width: 80%;
   margin-top: 20px;
 }
 
-.findLocation input {
+.inputDesign input {
   width: 100%;
   position: absolute;
   border-radius: 96px;
@@ -163,21 +163,21 @@ nav {
   text-transform: capitalize;
 }
 
-.findLocation input::placeholder {
+.inputDesign input::placeholder {
   color: #0F335E;
 }
 
-.findLocation input:focus~img {
+.inputDesign input:focus~img {
   display: none;
 }
 
-.findLocation img {
+.inputDesign img {
   position: absolute;
   top: 20px;
   left: 15px;
 }
 
-.findLocation .btn {
+.inputDesign .btn {
   position: absolute;
   right: 0;
   scale: .9;
@@ -257,12 +257,12 @@ nav {
   transform: translate(-50%, -50%);
 }
 
-.card .button .btn {
+.btn.bg-orange {
   padding: 13px 25px;
   background: var(--orange);
 }
 
-.card .button .btn:hover {
+.btn.bg-orange:hover {
   border-color: var(--orange);
   background: none;
   color: var(--orange)
@@ -341,11 +341,13 @@ section.learn-about {
 }
 
 .left .effect {
+  user-select: none;
   left: -200px;
   width: 600px;
 }
 
 .right .effect {
+  user-select: none;
   right: -100px;
   width: 400px;
 }
@@ -372,4 +374,11 @@ section.learn-about {
 .carousel__slide--active .box {
   transition: var(--transition);
   border-color: var(--orange);
+}
+
+.linkIcon a img {
+  padding: 10px;
+  border-radius: 5px;
+  margin: 3px;
+  background: #F9F9F9;
 }
