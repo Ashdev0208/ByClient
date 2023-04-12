@@ -1,0 +1,375 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: poppins;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+:root {
+  --transition: .6s ease all;
+  --primary: #4D2C5E;
+  --milk: #FDF8EE;
+  --orange: #FF7426;
+  --snow: #fff;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.ai-c {
+  align-items: center;
+}
+
+.js-b {
+  justify-content: space-between;
+}
+
+.col-6 {
+  width: 50%;
+}
+
+.orange {
+  color: var(--orange);
+}
+
+.title {
+  font-weight: 800;
+  font-size: 30px;
+}
+
+.text {
+  font-weight: 300;
+  font-size: 20px;
+}
+
+.left {
+  position: absolute;
+  left: 1%;
+  top: 0;
+}
+
+.right {
+  position: absolute;
+  right: 1%;
+  top: 0;
+}
+
+.rel {
+  position: relative;
+}
+
+
+.contain {
+  width: 100%;
+}
+
+ul li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+section {
+  padding-top: 50px;
+  position: relative;
+}
+
+.container {
+  width: 90%;
+  margin: 0 auto;
+}
+
+header {
+  background: url(./assets/eduItem.svg) var(--milk) center;
+  background-size: 100%;
+  background-position: 0 140px;
+  background-repeat: repeat-x;
+}
+
+nav {
+  padding-top: 30px;
+}
+
+.links {
+  gap: 50px;
+}
+
+.links li a {
+  font-weight: 600;
+  font-size: 18px;
+  color: #1D1D1D;
+  text-transform: capitalize;
+  transition: var(--transition);
+  -webkit-text-stroke: 1px transparent;
+}
+
+.links li a:hover {
+  -webkit-text-stroke-color: var(--primary);
+  color: transparent;
+
+}
+
+.btn {
+  padding: 15px 35px;
+  background: var(--primary);
+  color: #fff;
+  border: 3px solid transparent;
+  outline: none;
+  font-size: 18px;
+  border-radius: 35px;
+  cursor: pointer;
+  text-transform: capitalize;
+  transition: var(--transition);
+  backdrop-filter: blur(2.5px);
+}
+
+.btn:hover {
+  border-color: var(--primary);
+  background: none;
+  color: var(--primary);
+}
+
+
+.banner {
+  padding: 100px 0;
+  padding-bottom: 250px;
+}
+
+.findLocation {
+  position: relative;
+  width: 80%;
+  margin-top: 20px;
+}
+
+.findLocation input {
+  width: 100%;
+  position: absolute;
+  border-radius: 96px;
+  background: var(--snow);
+  border: none;
+  outline: none;
+  padding: 22px 20px;
+  padding-left: 45px;
+  font-weight: 500;
+  color: #0F335E;
+  text-transform: capitalize;
+}
+
+.findLocation input::placeholder {
+  color: #0F335E;
+}
+
+.findLocation input:focus~img {
+  display: none;
+}
+
+.findLocation img {
+  position: absolute;
+  top: 20px;
+  left: 15px;
+}
+
+.findLocation .btn {
+  position: absolute;
+  right: 0;
+  scale: .9;
+}
+
+.course-info {
+  background: var(--primary);
+  padding: 50px 30px;
+  width: 90%;
+  margin: 0 auto;
+  margin-top: -7%;
+  border-radius: 10px;
+}
+
+.card {
+  width: 32.5%;
+}
+
+.card .img-info img {
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 23px;
+}
+
+.course-info .card .title {
+  color: var(--snow)
+}
+
+.course-info .card .text {
+  color: #FFFFFF99;
+  font-size: 15px;
+}
+
+.text-field {
+  width: 72%;
+}
+
+.section-title {
+  text-align: center;
+}
+
+.section-title .text {
+  font-weight: 400;
+  font-size: 15px;
+  color: #8A8A8A;
+}
+
+.cards .card {
+  width: 400px;
+  box-shadow: 0px 4px 25px rgba(0, 0, 0, 0.1);
+  border-radius: 14px;
+  padding: 10px;
+  position: relative;
+}
+
+.cards .text {
+  font-size: 16px;
+  font-weight: 300;
+  color: #8a8a8a
+}
+
+.lessonAbout {
+  gap: 5px;
+  font-weight: 400;
+  margin-top: 20px;
+  padding-bottom: 60px;
+}
+
+.stars {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.card .button {
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.card .button .btn {
+  padding: 13px 25px;
+  background: var(--orange);
+}
+
+.card .button .btn:hover {
+  border-color: var(--orange);
+  background: none;
+  color: var(--orange)
+}
+
+section.learn-about {
+  padding-top: 0px;
+  margin-top: 100px;
+}
+
+.learn-about .col-6 .row .img img {
+  padding: 20px;
+  background: var(--primary);
+  border-radius: 23px;
+}
+
+.learn-about .text-field .title h5 {
+  font-size: 25px;
+  font-weight: 400;
+}
+
+.learn-about .text-field .text p {
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.bg {
+  width: 100%;
+  position: absolute;
+  height: 90%;
+  background: #FDF8EE;
+  z-index: -1;
+  top: 0;
+}
+
+.box>.row {
+  margin-top: 30px;
+}
+
+.box {
+  width: 80%;
+  background: #FFFFFF;
+  box-shadow: 0px 4px 28px rgba(0, 0, 0, 0.05);
+  padding: 20px;
+  margin: 40px;
+  border: 2px solid transparent;
+  border-radius: 5px;
+}
+
+.desc {
+  font-size: 16px;
+  font-weight: 400;
+  color: #ACACAC;
+
+}
+
+.avatar img {
+  width: 70px;
+  border-radius: 50%;
+  height: 70px;
+  object-fit: cover;
+}
+
+.carousel {
+  position: relative;
+  margin-top: -40px;
+}
+
+
+.effect {
+  filter: blur(117px);
+  position: absolute;
+  z-index: 1;
+  top: -50px;
+  pointer-events: none;
+}
+
+.left .effect {
+  left: -200px;
+  width: 600px;
+}
+
+.right .effect {
+  right: -100px;
+  width: 400px;
+}
+
+.carousel__pagination-button::after {
+  width: 13px !important;
+  height: 13px !important;
+  border-radius: 50% !important;
+  background: #C2C2C2 !important;
+  transition: .6s ease all;
+}
+
+.carousel__pagination-button--active::after {
+  background-color: var(--primary) !important;
+  border-radius: 23px !important;
+  width: 40px !important;
+  height: 13px !important;
+}
+
+.carousel__pagination-button:hover::after {
+  background-color: var(--primary) !important;
+}
+
+.carousel__slide--active .box {
+  transition: var(--transition);
+  border-color: var(--orange);
+}
