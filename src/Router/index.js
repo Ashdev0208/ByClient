@@ -7,6 +7,11 @@ const routes = [
         path: '/',
         component: firstPage
     },
+    {
+        path: '/hi',
+        name: "hi",
+        component: ()=>import('../components/header.vue')
+    },
 ];
 const router = createRouter({
     routes,

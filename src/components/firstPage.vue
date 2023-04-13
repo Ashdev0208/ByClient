@@ -20,48 +20,21 @@
                         </div>
                     </div>
 
-                    <div class="col-6">
+                    <div class="col-6" @click="redirect">
                         <img class="contain" src="../assets/banner-picture.svg" alt="">
                     </div>
                 </div>
             </div>
         </header>
         <div class="course-info row ai-c js-b">
-            <div class="card row ai-c js-b">
-                <div class="img-info"><img src="../assets/infoIcon1.svg" alt=""></div>
+            <div class="card row ai-c js-b" v-for="(data, i) in info" :key="i">
+                <div class="img-info"><img :src="data.picture" alt=""></div>
                 <div class="text-field">
-                    <div class="title">
-                        <h6>Learn The Latest Skills</h6>
+                    <div class="title white">
+                        <h6>{{ data.title }}</h6>
                     </div>
                     <div class="text">
-                        <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a BC, making
-                            it over 2000 years old.</p>
-                    </div>
-
-                </div>
-            </div>
-            <div class="card row ai-c js-b">
-                <div class="img-info"><img src="../assets/infoIcon2.svg" alt=""></div>
-                <div class="text-field">
-                    <div class="title">
-                        <h6>Get Ready For a Career</h6>
-                    </div>
-                    <div class="text">
-                        <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a BC, making
-                            it over 2000 years old.</p>
-                    </div>
-
-                </div>
-            </div>
-            <div class="card row ai-c js-b">
-                <div class="img-info"><img src="../assets/infoIcon3.svg" alt=""></div>
-                <div class="text-field">
-                    <div class="title">
-                        <h6>Earn a Certificate</h6>
-                    </div>
-                    <div class="text">
-                        <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a BC, making
-                            it over 2000 years old.</p>
+                        <p>{{ data.text }}</p>
                     </div>
 
                 </div>
@@ -80,7 +53,7 @@
             </div>
             <br><br><br>
             <div class="cards container row ai-c js-b">
-                <div class="card" v-for="data in cardDatas" :key="data.id">
+                <div class="card" v-for="(data, i) in cardDatas" :key="i">
                     <div class="img"><img class="contain" style="border-radius: 10px" :src="data.source" alt=""></div>
                     <br>
                     <div class="row js-b ai-c">
@@ -88,9 +61,11 @@
                             {{ data.subtitle }}
                         </div>
                         <div class="stars row">
-                            <div class="star" v-for="star in data.activeStar"><img src="../assets/activeStar.svg" alt="">
+                            <div class="star" v-for="(star, i) in data.activeStar" :key="i"><img
+                                    src="../assets/activeStar.svg" alt="">
                             </div>
-                            <div v-for="noneStar in 5 - data.activeStar" class="star"><img src="../assets/star.svg" alt="">
+                            <div v-for="(noneStar, i) in 5 - data.activeStar" class="star" :key="i"><img
+                                    src="../assets/star.svg" alt="">
                             </div>
                         </div>
                     </div>
@@ -101,23 +76,14 @@
                     <div class="price">
                         <h2 class="orange">{{ data.price }}</h2>
                     </div>
-                    <div class="row js-b lessonAbout">
-                        <div class="row">
-                            <div class="img"><img src="../assets/clock.svg" alt=""></div>
+                    <hr style="border-style: dashed;border-color: #acacac;border-width: 1px">
+                    <div class="row lessonAbout">
+                        <div class="row" v-for="(imgSource, index) in images" :key="index">
+                            <div class="img"><img :src="imgSource.img" alt=""></div>
                             <div class="text">{{ data.watch }}</div>
                         </div>
-
-                        <div class="row">
-                            <div class="img"><img src="../assets/video.svg" alt=""></div>
-                            <div class="text">{{ data.course }}</div>
-                        </div>
-
-                        <div class="row">
-                            <div class="img"><img src="../assets/download.svg" alt=""></div>
-                            <div class="text">{{ data.download }}</div>
-                        </div>
                     </div>
-                    <div class="button"><router-link :to="data.link"><button class="btn">join course</button></router-link>
+                    <div class="button"><button @click="redirects(i)" class="btn bg-orange">join course</button>
                     </div>
                 </div>
             </div>
@@ -175,8 +141,8 @@
                         <div class="desc">{{ data.desc }}</div>
                         <div class="row ai-c js-b">
                             <div class="avatar"><img :src="data.source" alt=""></div>
-                            <div class="text-field">
-                                <div class="title" style="font-size: 17px;font-weight: 500;">
+                            <div>
+                                <div class="title">
                                     {{ data.title }}
                                 </div>
                                 <div class="text" style="font-weight: 400;font-size: 13px;color: #8E8E8E;">
@@ -212,7 +178,7 @@
             <br><br>
             <br><br>
             <div class="cards row ai-c js-b">
-                <div class="card" v-for="data in teacherDatas" :key="data.id">
+                <div class="card" v-for="(data, i) in teacherDatas" :key="i">
                     <div class="img"><img class="contain" style="border-radius: 10px" :src="data.source" alt=""></div>
                     <br>
                     <div class="subtitle">
@@ -241,16 +207,25 @@
                 </div>
             </div>
         </section>
-        <Subs/>
+        <section class="container">
+            <Subs />
+        </section>
+        
+        <Footer></Footer>
     </div>
 </template>
 
 <script setup>
 import Nav from "./header.vue";
 import Subs from "./subs.vue";
+import Footer from "./footer.vue";
 import { ref } from 'vue';
 import 'vue3-carousel/dist/carousel.css'
-import { Carousel, Slide, Pagination } from 'vue3-carousel'
+import { Carousel, Slide, Pagination } from 'vue3-carousel';
+import { useRouter } from 'vue-router'
+
+let router = useRouter();
+
 const cardDatas = ref([{
     id: 0,
     source: new URL('../assets/tracks.png', import.meta.url),
@@ -379,8 +354,38 @@ const teacherDatas = ref([{
     linkedInLink: '/',
     instagramLink: '/',
     mail: 'easyExample@mail.blabla'
-}])
+}]);
 
+const info = ref([{
+    picture: new URL('../assets/infoIcon1.svg', import.meta.url),
+    title: "Learn The Latest Skills",
+    text: `Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a BC, making it over 2000 years old`
+},
+{
+    picture: new URL('../assets/infoIcon2.svg', import.meta.url),
+    title: "Get Ready For a Career",
+    text: `Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a BC, making it over 2000 years old.`
+}, {
+    picture: new URL('../assets/infoIcon3.svg', import.meta.url),
+    title: "Earn a Certificate",
+    text: `Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a BC, making it over 2000 years old.`
+}]);
+
+const images = ref([{
+    img: new URL('../assets/clock.svg', import.meta.url)
+},
+{
+    img: new URL('../assets/video.svg', import.meta.url)
+},
+{
+    img: new URL('../assets/download.svg', import.meta.url)
+},])
+
+const routerName = ref(["hi","hello","double hello"])
+
+let redirects = (num)=>{
+    router.push({name: routerName.value[num]})
+}
 </script>
 
 <style></style>
