@@ -6,21 +6,17 @@
                 <div class="banner row ai-c">
                     <div class="col-6">
                         <div class="title">
-                            <h1>The <span class="orange">Smart</span><br>
-                                Choice For <span class="orange">Future</span></h1>
+                            <h2><span class="orange">Kelajagingiz</span> uchun <span class="orange">iT</span> kasblarini
+                                o'rganish uchun toʻgʻri tanlov.</h2>
                         </div>
+                        <br>
                         <div class="text">
                             <p>Elearn is a global training provider based across the UK that specialises in accredited and
                                 bespoke training courses. We crush the...</p>
                         </div>
-                        <div class="inputDesign">
-                            <input type="text" placeholder="search for a location">
-                            <button class="btn">Continue</button>
-                            <img src="../assets/findIcon.svg" alt="">
-                        </div>
                     </div>
 
-                    <div class="col-6" @click="redirect">
+                    <div class="col-6">
                         <img class="contain" src="../assets/banner-picture.svg" alt="">
                     </div>
                 </div>
@@ -44,10 +40,10 @@
             <div class="tracks-title section-title rel">
                 <div class="img left"><img src="../assets/lamp.svg" alt=""></div>
                 <div class="title">
-                    <h2>Our Tracks</h2>
+                    <h2>Bizning kurslarimiz</h2>
                 </div>
                 <div class="text">
-                    <p>Lorem Ipsum is simply dummy text of the printing.</p>
+                    <p>Barcha kurslar online holatda olib boriladi.</p>
                 </div>
                 <div class="img right"><img src="../assets/curveShape.svg" alt=""></div>
             </div>
@@ -78,9 +74,17 @@
                     </div>
                     <hr style="border-style: dashed;border-color: #acacac;border-width: 1px">
                     <div class="row lessonAbout">
-                        <div class="row" v-for="(imgSource, index) in images" :key="index">
-                            <div class="img"><img :src="imgSource.img" alt=""></div>
+                        <div class="row">
+                            <div class="img"><img src="../assets/clock.svg" alt=""></div>
+                            <div class="text">{{ data.course }}</div>
+                        </div>
+                        <div class="row">
+                            <div class="img"><img src="../assets/video.svg" alt=""></div>
                             <div class="text">{{ data.watch }}</div>
+                        </div>
+                        <div class="row">
+                            <div class="img"><img src="../assets/download.svg" alt=""></div>
+                            <div class="text">{{ data.download }}</div>
                         </div>
                     </div>
                     <div class="button"><button @click="redirects(i)" class="btn bg-orange">join course</button>
@@ -135,7 +139,8 @@
                     <p>Lorem Ipsum is simply dummy text of the printing.</p>
                 </div>
             </div>
-            <Carousel class="carousel" :items-to-show="3" :autoplay="2000" :wrap-around="true">
+            <Carousel class="carousel" v-bind="CarouselSetting.settings" :breakpoints="CarouselSetting.breakpoints"
+                :autoplay="3000" :wrap-around="true">
                 <Slide v-for="(data, i) in boxData" :key="i">
                     <div class="box">
                         <div class="desc">{{ data.desc }}</div>
@@ -190,7 +195,7 @@
                     <div class="text" style="display: inline-block;margin: 20px 0;">
                         {{ data.desc }}
                     </div>
-
+ 
                     <div class="bottom row ai-c js-b">
                         <div class="text">
                             <h4 class="orange">{{ data.job }}</h4>
@@ -210,7 +215,7 @@
         <section class="container">
             <Subs />
         </section>
-        
+
         <Footer></Footer>
     </div>
 </template>
@@ -219,7 +224,7 @@
 import Nav from "./header.vue";
 import Subs from "./subs.vue";
 import Footer from "./footer.vue";
-import { ref } from 'vue';
+import { ref, reactive } from 'vue';
 import 'vue3-carousel/dist/carousel.css'
 import { Carousel, Slide, Pagination } from 'vue3-carousel';
 import { useRouter } from 'vue-router'
@@ -232,7 +237,7 @@ const cardDatas = ref([{
     title: 'UI/UX Design for Beginners',
     subtitle: 'UI/UX Design',
     price: "98$",
-    watch: "22hr",
+    watch: "72 + darslar",
     course: "34 Course",
     download: "50 sales",
     activeStar: 3,
@@ -381,11 +386,28 @@ const images = ref([{
     img: new URL('../assets/download.svg', import.meta.url)
 },])
 
-const routerName = ref(["hi","hello","double hello"])
+const routerName = ref(["hi", "hello", "double hello"])
 
-let redirects = (num)=>{
-    router.push({name: routerName.value[num]})
+let redirects = (num) => {
+    router.push({ name: routerName.value[num] })
 }
+
+let CarouselSetting = reactive({
+    settings: {
+        itemsToShow: 1,
+        snapAlign: 'center',
+    },
+    // breakpoints are mobile first
+    // any settings not specified will fallback to the carousel settings
+    breakpoints: {
+        991: {
+            itemsToShow: 3,
+            snapAlign: 'center',
+        },
+    },
+})
+
 </script>
+
 
 <style></style>
