@@ -51,7 +51,6 @@
             <div class="cards container row ai-c js-b">
                 <div class="card" v-for="(data, i) in cardDatas" :key="i">
                     <div class="img"><img class="contain" style="border-radius: 10px" :src="data.source" alt=""></div>
-                    <br>
                     <div class="row js-b ai-c">
                         <div class="text" style="display: inline-block;">
                             {{ data.subtitle }}
@@ -65,7 +64,6 @@
                             </div>
                         </div>
                     </div>
-                    <br>
                     <div class="title">
                         <h6> {{ data.title }}</h6>
                     </div>
@@ -139,6 +137,8 @@
                     <p>Lorem Ipsum is simply dummy text of the printing.</p>
                 </div>
             </div>
+
+
             <Carousel class="carousel" v-bind="CarouselSetting.settings" :breakpoints="CarouselSetting.breakpoints"
                 :autoplay="3000" :wrap-around="true">
                 <Slide v-for="(data, i) in boxData" :key="i">
@@ -185,8 +185,7 @@
             <div class="cards row ai-c js-b">
                 <div class="card" v-for="(data, i) in teacherDatas" :key="i">
                     <div class="img"><img class="contain" style="border-radius: 10px" :src="data.source" alt=""></div>
-                    <br>
-                    <div class="subtitle">
+                   <div class="subtitle">
                         {{ data.name }}
                     </div>
                     <div class="text">
@@ -375,16 +374,6 @@ const info = ref([{
     title: "Earn a Certificate",
     text: `Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a BC, making it over 2000 years old.`
 }]);
-
-const images = ref([{
-    img: new URL('../assets/clock.svg', import.meta.url)
-},
-{
-    img: new URL('../assets/video.svg', import.meta.url)
-},
-{
-    img: new URL('../assets/download.svg', import.meta.url)
-},])
 
 const routerName = ref(["hi", "hello", "double hello"])
 

@@ -418,8 +418,8 @@ section.learn-about {
 
 @media only screen and (max-width: 991px) {
 
-  .btn{
-    font-size: 19px;
+  .btn {
+    font-size: 15px;
   }
 
   .links {
@@ -484,9 +484,10 @@ section.learn-about {
   .center {
     width: 90% !important;
   }
-  .top img{
+
+  .top img {
     width: 240px !important;
-     
+
   }
 }
 
@@ -494,10 +495,46 @@ section.learn-about {
   .course-info .card {
     width: 80%;
   }
-  .title{
+
+  .title {
     font-size: 20px;
   }
-  .text{
+
+  .title h6 {
+    font-size: 21px;
+  }
+
+  .text {
     font-size: 17px;
+  }
+}
+
+
+@media only screen and (max-width: 567px) {
+  .course-info.row {
+    width: 96%;
+  }
+
+  .course-info .card {
+    width: 95%;
+  }
+
+  .cards .card {
+    width: 90%;
+  }
+
+  .section-title .left,
+  .section-title .right {
+    top: -50px;
+  }
+
+  .title h6 {
+    font-size: 14px;
+  }
+  .btn{
+    font-size: 13px;
+  }
+  .learn-about .col-6 > .row.ai-c{
+    flex-direction: column;
   }
 }

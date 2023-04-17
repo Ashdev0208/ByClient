@@ -75,4 +75,11 @@
 .bottom img {
     width: 110px;
 }
+
+@media only screen and (max-width: 567px) {
+    .right.top img,
+    .left.top img {
+        width: 190px !important;
+    }
+}
 </style>
